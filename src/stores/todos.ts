@@ -34,7 +34,7 @@ export const useTodos = defineStore('todos', {
         unfinishedTodos(state) {
             return state.todos.filter((todo) => !todo.isFinished)
         },
-        
+
         filteredTodos(): Todo[] {
             if (this.filter === 'finished') {
               return this.finishedTodos
@@ -48,6 +48,8 @@ export const useTodos = defineStore('todos', {
         addTodo(text: string) {
             if (text.length < 5) return alert('Please, provide a todo with more than 5 letters')
             this.todos.push({ text, id: this.nextId++, isFinished: false})
+
+            return text
         },
 
         changeTodoStatus(id: number) {
@@ -56,6 +58,10 @@ export const useTodos = defineStore('todos', {
 
         removeTodo(id: number) {
             this.todos = this.todos.filter((todo) => todo.id !== id)
+        },
+
+        showAlert(text: string) {
+            alert(`Todo ${text} add successfully`)
         }
     }
 })

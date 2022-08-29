@@ -25,8 +25,6 @@ import FilterTodos from './components/FilterTodos.vue';
 
 const todosStore = useTodos()
 
-console.log(todosStore.todos)
-
 </script>
 
 <style scoped>

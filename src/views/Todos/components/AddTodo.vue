@@ -24,6 +24,15 @@ function handleSendTodo(text: string) {
     clearText()
 }
 
+
+todosStore.$onAction(({ name, store, after}) => {
+    after(result => {
+        if ( result && name === 'addTodo')  {
+            store.showAlert(result)
+        }
+    })
+})
+
 </script>
 
 <style scoped>
